@@ -1,0 +1,30 @@
+<div class="relative min-h-screen h-full m-0 p-0">
+  <nav class="h-14 bg-slate-600 fixed top-0 w-full text-white flex justify-between px-4">
+    <span class="title text-xl my-auto">
+      Kushal Photography
+    </span>
+    <span class="action-items my-auto w-1/5 flex justify-between">
+      <a class="cursor-pointer" [ngClass]="currentSelection === selectedPageEnum.home ? 'underline' : ''"
+        (click)="changeSelection(selectedPageEnum.home)">Home</a>
+      <a class="cursor-pointer" [ngClass]="currentSelection === selectedPageEnum.portfolio ? 'underline' : ''"
+        (click)="changeSelection(selectedPageEnum.portfolio)">Portfolio</a>
+      <a class="cursor-pointer" [ngClass]="currentSelection === selectedPageEnum.about ? 'underline' : ''"
+        (click)="changeSelection(selectedPageEnum.about)">About</a>
+      <a class="cursor-pointer" [ngClass]="currentSelection === selectedPageEnum.contact ? 'underline' : ''"
+        (click)="changeSelection(selectedPageEnum.contact)">Contact Us</a>
+    </span>
+  </nav>
+
+  <ng-container class="mt-4 bg-gray-200">
+    <app-home *ngIf="currentSelection === selectedPageEnum.home"></app-home>
+    <app-about *ngIf="currentSelection === selectedPageEnum.about"></app-about>
+    <app-contact-us *ngIf="currentSelection === selectedPageEnum.contact"></app-contact-us>
+    <app-portfolio *ngIf="currentSelection === selectedPageEnum.portfolio"></app-portfolio>
+  </ng-container>
+
+  <div class="h-10"></div>
+
+  <div class="h-6 w-full bg-slate-600 text-center text-white absolute bottom-0 mt-2">
+    All content Copyright © 2022 Kushal Photography
+  </div>
+</div>
